@@ -27,7 +27,7 @@ gulp的优点
 构建快速
    -利用Node.js流的威力，你可以快速构建项目并减少频繁的IO操作">
 <meta property="og:image" content="http://o70l9ck3o.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-16%20%E4%B8%8B%E5%8D%887.45.23.png">
-<meta property="og:updated_time" content="2016-05-16T12:19:23.000Z">
+<meta property="og:updated_time" content="2016-05-16T12:22:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp的使用">
 <meta name="twitter:description" content="什么是gulp？gulp是一种自动化构建工具
@@ -304,7 +304,8 @@ var concat=requrie(&apos;gulp-conat&apos;);
 var min=require(&apos;gulp-jsmin&apos;);
 
 gulp.task(&apos;default&apos;,function(){
-    gulp.src(&apos;js/*js&apos;) //要合并的两个js文件的相对路径 *代表所有的js文件        .pipe(concat(&apos;new.js&apos;)) //合并js文件；new.js合成的js文件的文件名字，自行命名
+    gulp.src(&apos;js/*js&apos;) //要合并的两个js文件的相对路径 *代表文件
+    .pipe(concat(&apos;new.js&apos;)) //合并js文件；new.js合成的js文件的文件名字，自行命名
     .pipe(min()) //压缩js文件
     .pipe(gulp.dest(&apos;newdir/&apos;)) // 生成的文件在在新的目录newdir下
 
@@ -315,7 +316,7 @@ gulp.task(&apos;default&apos;,function(){
 <pre><code>function(){console.log(&apos;我是a&apos;)}
 function(){console.log(&apos;我是b&apos;)}
 </code></pre><h3 id="关于gulp-task的进一步说明"><a href="#关于gulp-task的进一步说明" class="headerlink" title="关于gulp.task的进一步说明"></a>关于gulp.task的进一步说明</h3><pre><code>gulp.task(&apos;default&apos;,[&apos;a&apos;,&apos;b&apos;],function(){})
-</code></pre><p>gulp.task()有三个默认值即：default，数组（要执行的函数名字，以数组形式展现，回调函数）</p>
+</code></pre><p>gulp.task()有三个默认值即：default，数组（要执行的函数名字，以数组形式展现），回调函数</p>
 <p>在终端执行时可以单个函数执行如：</p>
 <pre><code>gulp a    //执行函数名为a的函数
 </code></pre><p>或</p>
