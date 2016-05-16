@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/gihthub/" style="font-size: 10px;">gihthub</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/代码压缩/" style="font-size: 10px;">代码压缩</a> <a href="/tags/代码合并/" style="font-size: 10px;">代码合并</a> <a href="/tags/伪元素/" style="font-size: 10px;">伪元素</a> <a href="/tags/伪类/" style="font-size: 10px;">伪类</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片居中/" style="font-size: 10px;">图片居中</a> <a href="/tags/安装/" style="font-size: 10px;">安装</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/自动居中/" style="font-size: 10px;">自动居中</a> <a href="/tags/自己玩/" style="font-size: 10px;">自己玩</a> <a href="/tags/自试用/" style="font-size: 10px;">自试用</a>
+						<a href="/tags/gihthub/" style="font-size: 10px;">gihthub</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/代码压缩/" style="font-size: 10px;">代码压缩</a> <a href="/tags/代码合并/" style="font-size: 10px;">代码合并</a> <a href="/tags/伪元素/" style="font-size: 10px;">伪元素</a> <a href="/tags/伪类/" style="font-size: 10px;">伪类</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片居中/" style="font-size: 10px;">图片居中</a> <a href="/tags/安装/" style="font-size: 10px;">安装</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/数组去重/" style="font-size: 10px;">数组去重</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/自动居中/" style="font-size: 10px;">自动居中</a> <a href="/tags/自己玩/" style="font-size: 10px;">自己玩</a> <a href="/tags/自试用/" style="font-size: 10px;">自试用</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,166 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-再见，重复的你（数组去重）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/16/再见，重复的你（数组去重）/" class="article-date">
+  	<time datetime="2016-02-16T13:25:49.000Z" itemprop="datePublished">2016-02-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/16/再见，重复的你（数组去重）/">再见，重复的你（数组去重）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数组去重的几种思路"><a href="#数组去重的几种思路" class="headerlink" title="数组去重的几种思路"></a>数组去重的几种思路</h2><h3 id="思路一："><a href="#思路一：" class="headerlink" title="思路一："></a>思路一：</h3><p>1.双层循环，外层循环元素，内层循环时比较值<br>2.如果有相同的值则跳过，不相同则push进数组</p>
+<pre><code>Array.prototype.distinct = function(){
+   var arr = this,
+       result = [],
+       i,
+       j,
+       len = arr.length;
+
+   for(i = 0; i &lt; len; i++){
+       for(j = i + 1; j &lt; len; j++){
+          if(arr[i] === arr[j]){
+              j = ++i;
+           }
+       }
+     result.push(arr[i]);
+   }
+   return result;
+}
+var arra = [1,2,3,4,4,1,1,2,1,1,1];
+arra.distinct();             //返回[3,4,2,1]
+</code></pre><h3 id="思路二：利用splice直接在原数组进行操作"><a href="#思路二：利用splice直接在原数组进行操作" class="headerlink" title="思路二：利用splice直接在原数组进行操作"></a>思路二：利用<code>splice</code>直接在原数组进行操作</h3><p>1.双层循环，外层循环元素，内层循环时比较值<br>2.值相同时，则删去这个值    </p>
+<pre><code>Array.prototype.distinct = function (){
+    var arr = this,
+        i,
+        j,
+        len = arr.length;
+
+     for(i = 0; i &lt; len; i++){
+        for(j = i + 1; j &lt; len; j++){
+            if(arr[i] == arr[j]){
+               arr.splice(j,1);
+               len--;
+               j--;
+            }
+       }
+    }
+    return arr;
+};
+
+var a = [1,2,3,4,5,6,5,3,2,4,56,4,1,2,1,1,1,1,1,1,];
+var b = a.distinct();
+console.log(b.toString()); //1,2,3,4,5,6,56
+</code></pre><h3 id="思路三：利用对象的属性不能相同的特点进行去重"><a href="#思路三：利用对象的属性不能相同的特点进行去重" class="headerlink" title="思路三：利用对象的属性不能相同的特点进行去重"></a>思路三：利用对象的属性不能相同的特点进行去重</h3><pre><code>Array.prototype.distinct = function (){
+   var arr = this,
+       i,
+       obj = {},
+       result = [],
+       len = arr.length;
+
+   for(i = 0; i&lt; arr.length; i++){
+       if(!obj[arr[i]]){    //如果能查找到，证明数组元素重复了
+           obj[arr[i]] = 1;
+           result.push(arr[i]);
+      }
+   }
+  return result;
+};
+
+var a = [1,2,3,4,5,6,5,3,2,4,56,4,1,2,1,1,1,1,1,1,];
+var b = a.distinct();
+console.log(b.toString()); //1,2,3,4,5,6,56
+</code></pre><h3 id="思路四-利用indexOf以及sort（不推荐-各种不准）"><a href="#思路四-利用indexOf以及sort（不推荐-各种不准）" class="headerlink" title="思路四:利用indexOf以及sort（不推荐,各种不准）"></a>思路四:利用<code>indexOf</code>以及<code>sort</code>（不推荐,各种不准）</h3><p><code>尤其在chrome下无法实现去重</code></p>
+<pre><code>Array.prototype.distinct = function (){
+   var arr = this,
+       len = arr.length,
+       list = arr.concat().sort();    //注意这个地方的concat：复制一个新的数组
+
+   list.sort(function(a,b){
+       if(a === b){
+           var index = arr.indexOf(a);
+           arr.splice(index,1);    //在复制的数组进行排序（相邻的两个元素进行比较）时，操作原有数组arr
+       }
+   });
+   return arr;
+};
+
+var a = [1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,2,3,3,2,2,1,23,1,23,2,3,2,3,2,3,25];
+var b = a.distinct();
+console.log(b.toString());
+</code></pre><h3 id="思路五：数组递归去重"><a href="#思路五：数组递归去重" class="headerlink" title="思路五：数组递归去重"></a>思路五：数组递归去重</h3><p>1.运用递归的思想<br>2.先排序，然后从最后开始比较，遇到相同，则删除</p>
+<pre><code>Array.prototype.distinct = function (){
+   var arr = this,
+       len = arr.length;
+
+   arr.sort(function(a,b){        //对数组进行排序才能方便比较
+       return a - b;
+   })
+
+   function loop(index){
+       if(index &gt;= 1){
+           if(arr[index] === arr[index-1]){
+               arr.splice(index,1);
+           }
+           loop(index - 1);    //递归loop函数进行去重
+       }
+   }
+   loop(len-1);
+
+   return arr;
+};
+
+var a = [1,2,3,4,5,6,5,3,2,4,56,4,1,2,1,1,1,1,1,1,56,45,56];
+var b = a.distinct();
+console.log(b.toString());        //1,2,3,4,5,6,45,56
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组去重/">数组去重</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-移动端的小知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
