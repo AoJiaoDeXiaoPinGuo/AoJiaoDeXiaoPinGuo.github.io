@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>nodeJS初学小结 | 前端农场</title>
+  <title>移动端的小知识点 | 前端农场</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http://25.io/mou/">
+  <meta name="description" content="移动端问题获取滚动条的值：window.scrollY    window.scrollX
+pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios中没有滚动条的概念，所以这两个属性自然不支持，但我们可以按照上上面那样写，而且Android也支持这个属性，所以都用window.scroll">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nodeJS初学小结">
-<meta property="og:url" content="http://yoursite.com/2016/01/13/nodeJS初学小结/index.html">
+<meta property="og:title" content="移动端的小知识点">
+<meta property="og:url" content="http://yoursite.com/2016/02/10/移动端的小知识点/index.html">
 <meta property="og:site_name" content="前端农场">
-<meta property="og:description" content="http://25.io/mou/">
-<meta property="og:updated_time" content="2016-05-12T14:13:30.000Z">
+<meta property="og:description" content="移动端问题获取滚动条的值：window.scrollY    window.scrollX
+pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios中没有滚动条的概念，所以这两个属性自然不支持，但我们可以按照上上面那样写，而且Android也支持这个属性，所以都用window.scroll">
+<meta property="og:updated_time" content="2016-05-16T13:10:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nodeJS初学小结">
-<meta name="twitter:description" content="http://25.io/mou/">
+<meta name="twitter:title" content="移动端的小知识点">
+<meta name="twitter:description" content="移动端问题获取滚动条的值：window.scrollY    window.scrollX
+pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios中没有滚动条的概念，所以这两个属性自然不支持，但我们可以按照上上面那样写，而且Android也支持这个属性，所以都用window.scroll">
   
     <link rel="alternative" href="/atom.xml" title="前端农场" type="application/atom+xml">
   
@@ -201,11 +204,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-nodeJS初学小结" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-移动端的小知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/13/nodeJS初学小结/" class="article-date">
-  	<time datetime="2016-01-13T09:58:31.000Z" itemprop="datePublished">2016-01-13</time>
+      <a href="/2016/02/10/移动端的小知识点/" class="article-date">
+  	<time datetime="2016-02-10T12:41:06.000Z" itemprop="datePublished">2016-02-10</time>
 </a>
     </div>
   
@@ -218,7 +221,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      nodeJS初学小结
+      移动端的小知识点
     </h1>
   
 
@@ -226,6 +229,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自试用/">自试用</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -234,7 +241,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://25.io/mou/" target="_blank" rel="external">http://25.io/mou/</a></p>
+        <h2 id="移动端问题"><a href="#移动端问题" class="headerlink" title="移动端问题"></a>移动端问题</h2><h3 id="获取滚动条的值："><a href="#获取滚动条的值：" class="headerlink" title="获取滚动条的值："></a>获取滚动条的值：</h3><pre><code>window.scrollY    window.scrollX
+</code></pre><p>pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios中没有滚动条的概念，所以这两个属性自然不支持，但我们可以按照上上面那样写，而且Android也支持这个属性，所以都用window.scroll<br><a id="more"></a></p>
+<h3 id="禁止选择文本："><a href="#禁止选择文本：" class="headerlink" title="禁止选择文本："></a>禁止选择文本：</h3><pre><code>-webkit-user-select:none;
+</code></pre><p>禁止用户选择文本,ios和android都支持</p>
+<h3 id="css中的border—box-即一像素问题-："><a href="#css中的border—box-即一像素问题-：" class="headerlink" title="css中的border—box(即一像素问题)："></a>css中的border—box(即一像素问题)：</h3><pre><code>element{
+    width:100%;
+    padding-left:10px;
+    box-sizing:border-box;
+    border:1px solid #233;
+}
+</code></pre><p>当既要一个元素自适用，又要有固定的padding值或border时，我们要能想到box-sizing这个属性，<br>即为元素指定的任何内边距和边框都将在已设定的高度和宽度内惊醒绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容和宽度和高度。</p>
+<h3 id="base64编码图图片替换url图片"><a href="#base64编码图图片替换url图片" class="headerlink" title="base64编码图图片替换url图片"></a>base64编码图图片替换url图片</h3><p>由于在移动端，网络请求是很珍贵的资源，尤其在2g或者3g网络下，所以能不发请求的资源都尽量不要发，对于一些小图片icon之类的，可以将图片用base64编码，来减少网络请求。</p>
+<h3 id="动画效果时开启硬件加速"><a href="#动画效果时开启硬件加速" class="headerlink" title="动画效果时开启硬件加速"></a>动画效果时开启硬件加速</h3><p>我们在制作动画效果时经常会想要改版元素的top或者left来让元素动起来，在pc端还好但是移动端就会有较大的卡顿感，这么我们需要使用css3的  transform: translate3d;来替换，</p>
+<p>此效果可以让浏览器开启gpu加速，渲染更流畅    </p>
+<h3 id="background-image和image的加载区别"><a href="#background-image和image的加载区别" class="headerlink" title="background-image和image的加载区别"></a>background-image和image的加载区别</h3><p>在网页加载的过程中，以css背景图存在的图片background-image会等到结构加载完成（网页的内容全部显示以后）才开始加载，而html中的标签img是网页结构（内容）的一部分会在加载结构的过程中加载，换句话讲，网页会先加载标签img的内容，再加载背景图片background-image，如果你用引入了一个很大的图片，那么在这个图片下载完成之前，img后的内容都不会显示。而如果用css来引入同样的图片，网页结构和内容加载完成之后，才开始加载背景图片，不会影响你浏览网页内容。</p>
+<h2 id="移动端自适用的解决方案"><a href="#移动端自适用的解决方案" class="headerlink" title="移动端自适用的解决方案"></a>移动端自适用的解决方案</h2><p>是不是还在为自适用而烦恼，每次都要各种计算rem值，单当你适用淘宝前端的制作的<a href="https://github.com/amfe/lib-flexible" target="_blank" rel="external">lib.flexible</a>时，一切都变的那么简单；<br>打开连接，在html中在头部引入这个文件，执行js后，执行这个js后，会在html（也就是document.documentElement）上增加一个data-dpr属性，以及font-size样式。<br>之后页面中的元素，都可以用rem单位来设置。html上的font-size就是rem的基准像素。</p>
 
       
     </div>
@@ -244,18 +266,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/15/伪类和伪元素/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          伪类和伪元素
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/08/makedown语法测试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">makedown语法测试</div>
+    <a href="/2016/02/02/gulp的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gulp的使用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -290,7 +303,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="nodeJS初学小结" data-title="nodeJS初学小结" data-url="http://yoursite.com/2016/01/13/nodeJS初学小结/"></div>
+	<div class="ds-thread" data-thread-key="移动端的小知识点" data-title="移动端的小知识点" data-url="http://yoursite.com/2016/02/10/移动端的小知识点/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
