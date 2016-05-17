@@ -14,7 +14,7 @@ pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios�
 <meta property="og:site_name" content="前端农场">
 <meta property="og:description" content="移动端让IE见鬼去吧获取滚动条的值：window.scrollY    window.scrollX
 pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios中没有滚动条的概念，所以这两个属性自然不支持，但我们可以按照上上面那样写，而且Android也支持这个属性，所以都用window.scroll">
-<meta property="og:updated_time" content="2016-05-17T11:17:28.000Z">
+<meta property="og:updated_time" content="2016-05-17T11:19:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端的小知识点">
 <meta name="twitter:description" content="移动端让IE见鬼去吧获取滚动条的值：window.scrollY    window.scrollX
@@ -83,7 +83,7 @@ pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios�
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -242,7 +242,7 @@ pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios�
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="移动端让IE见鬼去吧"><a href="#移动端让IE见鬼去吧" class="headerlink" title="移动端让IE见鬼去吧"></a>移动端让IE见鬼去吧</h2><h3 id="获取滚动条的值："><a href="#获取滚动条的值：" class="headerlink" title="获取滚动条的值："></a>获取滚动条的值：</h3><pre><code>window.scrollY    window.scrollX
-</code></pre><p>pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios中没有滚动条的概念，所以这两个属性自然不支持，但我们可以按照上上面那样写，而且Android也支持这个属性，所以都用window.scroll<br><a id="more"></a></p>
+</code></pre><p>pc端获取滚动条用得时document.scrollTop和document.scrollLeft,但在ios中没有滚动条的概念，所以这两个属性自然不支持，但我们可以按照上上面那样写，而且Android也支持这个属性，所<br><!--阅读全文--><br>以都用window.scroll<br><a id="more"></a></p>
 <h3 id="webkit内核私有的meta标签"><a href="#webkit内核私有的meta标签" class="headerlink" title="webkit内核私有的meta标签"></a>webkit内核私有的meta标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot; name=&quot;viewport&quot;&gt;</span><br><span class="line">&lt;meta content=&quot;yes&quot; name=&quot;apple-mobile-web-app-capable&quot;&gt;</span><br><span class="line">&lt;meta content=&quot;black&quot; name=&quot;apple-mobile-web-app-status-bar-style&quot;&gt;</span><br><span class="line">&lt;meta content=&quot;telephone=no&quot; name=&quot;format-detection&quot;&gt;</span><br></pre></td></tr></table></figure>
 <p>第一个meta标签表示：强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览；</p>
 <p>第二个meta标签是iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；</p>
