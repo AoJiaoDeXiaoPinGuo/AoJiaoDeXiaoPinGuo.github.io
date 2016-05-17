@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="前端农场">
 <meta property="og:description" content="jade的应用什么是jade？jade是一种高性能的模板引擎，它是javascript实现的，并且可以供Node使用。
 安装（本文用的是gulp-jade）npm install gulp-jade  //[gulp的安装详见](http://aojiaodexiaopinguo.github.io/2016/02/02/gulp%E7%9A%84%E4%BD%BF%E7%94%A8/#more)">
-<meta property="og:updated_time" content="2016-05-17T07:28:34.000Z">
+<meta property="og:updated_time" content="2016-05-17T07:36:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp-jade的应用">
 <meta name="twitter:description" content="jade的应用什么是jade？jade是一种高性能的模板引擎，它是javascript实现的，并且可以供Node使用。
@@ -243,7 +243,8 @@
       
         <h2 id="jade的应用"><a href="#jade的应用" class="headerlink" title="jade的应用"></a>jade的应用</h2><h3 id="什么是jade？"><a href="#什么是jade？" class="headerlink" title="什么是jade？"></a>什么是jade？</h3><p>jade是一种高性能的模板引擎，它是javascript实现的，并且可以供Node使用。</p>
 <h3 id="安装（本文用的是gulp-jade）"><a href="#安装（本文用的是gulp-jade）" class="headerlink" title="安装（本文用的是gulp-jade）"></a>安装（本文用的是gulp-jade）</h3><pre><code>npm install gulp-jade  //[gulp的安装详见](http://aojiaodexiaopinguo.github.io/2016/02/02/gulp%E7%9A%84%E4%BD%BF%E7%94%A8/#more) 
-</code></pre><h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>在gulp中的gulpfile.js中操作</p>
+</code></pre><a id="more"></a>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>在gulp中的gulpfile.js中操作</p>
 <pre><code>var gulp=require(&apos;gulp&apos;);
 var jade=require(&apos;gulp-jade&apos;);
 </code></pre><p>标签的应用：</p>
@@ -269,7 +270,7 @@ var jade=require(&apos;gulp-jade&apos;);
 | hello world
 | welcome to use gulp-jade
 | jade makes your code pertty
-</code></pre><p>渲染为<code>&lt;p&gt;hello world welcome to use gulp-jade jade makes your code prtty&lt;&gt;</code></p>
+</code></pre><p>渲染为<code>&lt;p&gt;hello world welcome to use gulp-jade jade makes your code prtty&lt;/p&gt;</code></p>
 <p>还可以用<code>.</code>来开始一段文字：</p>
 <pre><code>p.
  foo asjdfl
@@ -293,8 +294,10 @@ asdf
 <pre><code>&lt;p&gt;.&lt;/p&gt;
 </code></pre><p>需要注意的时文本块需要两次转义，比如想要输出下面的文本：</p>
 <pre><code>&lt;p&gt;hello\world&lt;/p&gt;
-</code></pre><p>使用：<br>    p.<br>     hello\world</p>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>单行注释和javascript里的一样，通过<code>//</code>来开始，并且<code>必须单独一行</code>:</p>
+</code></pre><p>使用：</p>
+<pre><code>p.
+ hello\\world
+</code></pre><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>单行注释和javascript里的一样，通过<code>//</code>来开始，并且<code>必须单独一行</code>:</p>
 <pre><code>// just a test
 p hello
 p world
