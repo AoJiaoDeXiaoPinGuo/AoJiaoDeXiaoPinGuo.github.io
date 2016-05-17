@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/gihthub/" style="font-size: 10px;">gihthub</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/代码压缩/" style="font-size: 10px;">代码压缩</a> <a href="/tags/代码合并/" style="font-size: 10px;">代码合并</a> <a href="/tags/伪元素/" style="font-size: 10px;">伪元素</a> <a href="/tags/伪类/" style="font-size: 10px;">伪类</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片居中/" style="font-size: 10px;">图片居中</a> <a href="/tags/安装/" style="font-size: 10px;">安装</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/数组去重/" style="font-size: 10px;">数组去重</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/自动居中/" style="font-size: 10px;">自动居中</a> <a href="/tags/自己玩/" style="font-size: 10px;">自己玩</a> <a href="/tags/自试用/" style="font-size: 10px;">自试用</a>
+						<a href="/tags/gihthub/" style="font-size: 10px;">gihthub</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/代码压缩/" style="font-size: 10px;">代码压缩</a> <a href="/tags/代码合并/" style="font-size: 10px;">代码合并</a> <a href="/tags/伪元素/" style="font-size: 10px;">伪元素</a> <a href="/tags/伪类/" style="font-size: 10px;">伪类</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片居中/" style="font-size: 10px;">图片居中</a> <a href="/tags/安装/" style="font-size: 10px;">安装</a> <a href="/tags/工程化/" style="font-size: 10px;">工程化</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/数组去重/" style="font-size: 10px;">数组去重</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/模块化/" style="font-size: 10px;">模块化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/自动居中/" style="font-size: 10px;">自动居中</a> <a href="/tags/自己玩/" style="font-size: 10px;">自己玩</a> <a href="/tags/自试用/" style="font-size: 10px;">自试用</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,193 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-gulp-jade的应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/22/gulp-jade的应用/" class="article-date">
+  	<time datetime="2016-02-22T06:05:20.000Z" itemprop="datePublished">2016-02-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/22/gulp-jade的应用/">gulp-jade的应用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jade的应用"><a href="#jade的应用" class="headerlink" title="jade的应用"></a>jade的应用</h2><h3 id="什么是jade？"><a href="#什么是jade？" class="headerlink" title="什么是jade？"></a>什么是jade？</h3><p>jade是一种高性能的模板引擎，它是javascript实现的，并且可以供Node使用。</p>
+<h3 id="安装（本文用的是gulp-jade）"><a href="#安装（本文用的是gulp-jade）" class="headerlink" title="安装（本文用的是gulp-jade）"></a>安装（本文用的是gulp-jade）</h3><pre><code>npm install gulp-jade  //[gulp的安装详见](http://aojiaodexiaopinguo.github.io/2016/02/02/gulp%E7%9A%84%E4%BD%BF%E7%94%A8/#more) 
+</code></pre><h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>在gulp中的gulpfile.js中操作</p>
+<pre><code>var gulp=require(&apos;gulp&apos;);
+var jade=require(&apos;gulp-jade&apos;);
+</code></pre><p>标签的应用：</p>
+<pre><code>html
+</code></pre><p>它会被转化为<code>&lt;html&gt;&lt;/html&gt;</code></p>
+<p>标签也是可以有id的：</p>
+<pre><code>div#header
+</code></pre><p>它会被转化为<code>&lt;div id=&quot;header&quot;&gt;&lt;/div&gt;</code></p>
+<p>怎么加class呢?</p>
+<pre><code>div.container
+</code></pre><p>它会被转换为<code>&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;</code></p>
+<p>多个id和class也是很方便的：</p>
+<pre><code>div#header.container
+</code></pre><p>转换为<code>&lt;div id=&quot;header&quot; class=&quot;container&quot;&gt;&lt;/div&gt;</code></p>
+<p>而当不写标签名时：</p>
+<pre><code>#header
+.footer
+</code></pre><p>转换为<code>&lt;div id=&quot;header&quot;&gt;&lt;/div&gt;&lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;</code></p>
+<h3 id="标签文本"><a href="#标签文本" class="headerlink" title="标签文本"></a>标签文本</h3><p>只要简单的把内容放在标签之后就行：</p>
+<pre><code>p hello world
+</code></pre><p>它会被渲染为<code>&lt;p&gt;hello world&lt;/p&gt;</code><br>而当大段的文字时：</p>
+<pre><code>p
+| hello world
+| welcome to use gulp-jade
+| jade makes your code pertty
+</code></pre><p>渲染为<code>&lt;p&gt;hello world welcome to use gulp-jade jade makes your code prtty&lt;&gt;</code></p>
+<p>还可以用<code>.</code>来开始一段文字：</p>
+<pre><code>p.
+ foo asjdfl
+ asdf
+  asf 
+  sdf
+ asfsdf
+ asdf.
+</code></pre><p>会被渲染为：</p>
+<pre><code>&lt;p&gt;foo asjdfl
+asdf
+ asf
+ asf
+asfsdf
+asdf
+.
+&lt;p&gt;
+</code></pre><p>这和带一个空格的<code>.</code>是不一样的，带空格的会被jade忽略，当做普通的文字：</p>
+<pre><code>p .
+</code></pre><p>渲染为：</p>
+<pre><code>&lt;p&gt;.&lt;/p&gt;
+</code></pre><p>需要注意的时文本块需要两次转义，比如想要输出下面的文本：</p>
+<pre><code>&lt;p&gt;hello\world&lt;/p&gt;
+</code></pre><p>使用：<br>    p.<br>     hello\world</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>单行注释和javascript里的一样，通过<code>//</code>来开始，并且<code>必须单独一行</code>:</p>
+<pre><code>// just a test
+p hello
+p world
+</code></pre><p>渲染为：</p>
+<pre><code>&lt;!--just a test--&gt;
+&lt;p&gt;hello&lt;/p&gt;
+&lt;p&gt;world&lt;/p&gt;
+</code></pre><p>jade同样支持不输出的注释，加一个短横线就行了：</p>
+<pre><code>//- just a test
+p hello
+p world
+</code></pre><p>渲染为：</p>
+<pre><code>&lt;p&gt;hello&lt;/p&gt;
+&lt;p&gt;world&lt;/p&gt;
+</code></pre><h3 id="内联"><a href="#内联" class="headerlink" title="内联"></a>内联</h3><p>jade支持以自然的方式定义标签嵌套：</p>
+<pre><code>ul
+    li.first
+        a(href=&quot;#&quot;) hello
+    li
+        a(href=&quot;#&quot;) world
+    li
+        a(href=&quot;#&quot;) jade
+</code></pre><h3 id="块展开"><a href="#块展开" class="headerlink" title="块展开"></a>块展开</h3><p>块展开可以帮你在一行内创建嵌套的标签，下面的例子和上面的是一样的：</p>
+<pre><code>ul
+    li.first: a(href=&quot;#&quot;) hello
+    li: a(href=&quot;#&quot;) world
+    li: a(href=&quot;#&quot;) jade
+</code></pre><h3 id="强大的include"><a href="#强大的include" class="headerlink" title="强大的include"></a>强大的include</h3><p>include允许静态包含一段jade，或者别的存放在单个文件中的东西比如CSS，HTML非常常见的例子是包含头部和页脚，假设我们有一个下面的目录结构的文件夹：</p>
+<pre><code>./index.jade
+./allJade
+    ./head.jade
+</code></pre><p>下面是index.jade的内容：</p>
+<pre><code>html
+    head
+        meta(charset=&quot;utf-8&quot;)
+        title I am jade
+    body
+        h2 hello world
+        include alljade/head.jade
+</code></pre><p>head.jade的内容为：</p>
+<pre><code>ul
+    li 
+        a(href=&quot;#&quot;) 首页
+    li
+        a(href=&quot;#&quot;) 产品目录
+    li
+        a(href=&quot;#&quot;) 联系我们
+</code></pre><p>则此时，include会将head.jade的内容读取到index.jade中，实现两者完美融合<br>渲染为：</p>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;I am jade&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h2&gt;hello world&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;#&quot;&gt;首页&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;#&quot;&gt;产品目录&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;#&quot;&gt;联系我们&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/body&gt;
+&lt;/html&gt;        
+</code></pre><h3 id="最后执行的代码"><a href="#最后执行的代码" class="headerlink" title="最后执行的代码"></a>最后执行的代码</h3><p>在gulpfile.js将获取的API后，输入执行代码：</p>
+<pre><code>gulp.task(&apos;default&apos;.function(){
+    gulp.src(&apos;alljade/*.jade&apos;)
+    .pipe(jade())
+    .pipe(gulp.dest(&apos;new/&apos;)) //new是一个文件夹名字,指输出结果到new这个文件夹下
+})
+</code></pre><p>最后在终端执行：</p>
+<pre><code>gulp
+</code></pre><p>则会将jade格式转换为我们熟悉的html格式了。        </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jade/">jade</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工程化/">工程化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块化/">模块化</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-再见，重复的你（数组去重）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -773,71 +960,10 @@
 
 
   
-    <article id="post-github创建博客指南" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/01/02/github创建博客指南/" class="article-date">
-  	<time datetime="2016-01-02T09:58:31.000Z" itemprop="datePublished">2016-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/02/github创建博客指南/">github博客安装指南</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <link rel="shortcut icon" href="http://o70l9ck3o.bkt.clouddn.com/icon%E5%89%AF%E6%9C%AC.ico">
-
-<p><a href="https://www.zybuluo.com/mdeditor">makedown语法连接</a></p>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤:"></a>安装步骤:</h2><p>1.安装Node.js<a href="https://nodejs.org/en/">官网</a>下载</p>
-<p>2.安装Git（安装Xcode就行，本身自带git）</p>
-<p>3.在github<a href="httdivs://github.com">官网</a>注册账号</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gihthub/">gihthub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安装/">安装</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/02/github创建博客指南/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
