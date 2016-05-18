@@ -6,16 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>bootstrap表单和栅格浅谈 | 前端农场</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Bootstrap-表单">
+  <meta name="description" content="Bootstrap-表单基础表单
+对于基础表单bootstrap并未对其做太多的定制型效果设计，仅仅对齐表单内的fieldest、legend、label标签进行了定制，主要将这些原色的margin、padding和border等进行了细化设置
+input、select、texture等元素设置form-control类
+
+宽度变成了100%
+设置了一个浅灰色（#ccc）的边框
+具有4px的圆角">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bootstrap表单和栅格浅谈">
 <meta property="og:url" content="http://yoursite.com/2016/05/18/bootstrap表单和栅格浅谈/index.html">
 <meta property="og:site_name" content="前端农场">
-<meta property="og:description" content="Bootstrap-表单">
-<meta property="og:updated_time" content="2016-05-18T12:16:19.000Z">
+<meta property="og:description" content="Bootstrap-表单基础表单
+对于基础表单bootstrap并未对其做太多的定制型效果设计，仅仅对齐表单内的fieldest、legend、label标签进行了定制，主要将这些原色的margin、padding和border等进行了细化设置
+input、select、texture等元素设置form-control类
+
+宽度变成了100%
+设置了一个浅灰色（#ccc）的边框
+具有4px的圆角">
+<meta property="og:image" content="http://o70l9ck3o.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-18%20%E4%B8%8B%E5%8D%889.46.30.png">
+<meta property="og:updated_time" content="2016-05-18T13:48:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bootstrap表单和栅格浅谈">
-<meta name="twitter:description" content="Bootstrap-表单">
+<meta name="twitter:description" content="Bootstrap-表单基础表单
+对于基础表单bootstrap并未对其做太多的定制型效果设计，仅仅对齐表单内的fieldest、legend、label标签进行了定制，主要将这些原色的margin、padding和border等进行了细化设置
+input、select、texture等元素设置form-control类
+
+宽度变成了100%
+设置了一个浅灰色（#ccc）的边框
+具有4px的圆角">
+<meta name="twitter:image" content="http://o70l9ck3o.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-18%20%E4%B8%8B%E5%8D%889.46.30.png">
   
     <link rel="alternative" href="/atom.xml" title="前端农场" type="application/atom+xml">
   
@@ -238,7 +258,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Bootstrap-表单"><a href="#Bootstrap-表单" class="headerlink" title="Bootstrap-表单"></a>Bootstrap-表单</h3>
+        <h3 id="Bootstrap-表单"><a href="#Bootstrap-表单" class="headerlink" title="Bootstrap-表单"></a>Bootstrap-表单</h3><h4 id="基础表单"><a href="#基础表单" class="headerlink" title="基础表单"></a>基础表单</h4><ul>
+<li>对于基础表单bootstrap并未对其做太多的定制型效果设计，仅仅对齐表单内的<code>fieldest</code>、<code>legend</code>、<code>label</code>标签进行了定制，主要将这些原色的margin、padding和border等进行了细化设置</li>
+<li><p>input、select、texture等元素设置form-control类</p>
+<ul>
+<li>宽度变成了100%</li>
+<li>设置了一个浅灰色（#ccc）的边框</li>
+<li>具有4px的圆角</li>
+<li>设置阴影效果，并且元素得到焦点之时，阴影和边框效果会有所变化</li>
+<li>设置了placeholder的颜色为#999</li>
+</ul>
+</li>
+<li><p>role</p>
+<ul>
+<li>html5的属性</li>
+<li>role=form  //告诉辅助设备（如屏幕阅读器）这个元素所扮演的较色是个表单</li>
+<li>role=button //告诉设备，这个事按钮，可以点击，本质上是增强语义性，增强组件的可访性、可用性</li>
+</ul>
+</li>
+<li><code>.form-group类名</code>  ： 会产生margin的效果，一个<code>margin-bottom=15px</code>的效果  <h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><h4 id="form-input"><a href="#form-input" class="headerlink" title="form-input:"></a>form-input:</h4></li>
+<li>必须带有type，多使用<code>form-control</code>类，是input标签100%自适用，<ul>
+<li>input-sm :让控件比正常大小更小</li>
+<li>input-lg :让控件比正常大小更大</li>
+<li>不设置就是正常大小</li>
+</ul>
+</li>
+<li>disabled 禁用属性</li>
+<li>placeholder 默认内容</li>
+</ul>
+<h4 id="form-select"><a href="#form-select" class="headerlink" title="form-select:"></a>form-select:</h4><ul>
+<li>默认选择一个选项，多使用form-control</li>
+<li>多行选择的话，设置multiple属性 <select multiple class="form-control"></select></li>
+</ul>
+<h4 id="form-textarea"><a href="#form-textarea" class="headerlink" title="form-textarea:"></a>form-textarea:</h4><p>设置rows可定义其高度，设置cols可以设置其宽度，但如果textarea元素中添加了类名<code>form-control</code>，则无需设置cols属性</p>
+<h4 id="form-fieldset-legend-label"><a href="#form-fieldset-legend-label" class="headerlink" title="form-fieldset/legend/label"></a>form-fieldset/legend/label</h4><p>留白</p>
+<h4 id="form-单选框，多选框"><a href="#form-单选框，多选框" class="headerlink" title="form-单选框，多选框"></a>form-单选框，多选框</h4><ul>
+<li>日常开发最头痛的是控件与文字对齐问题,bootstrap则无需关心这个问题。</li>
+<li>如果checkbox需要水平排列，只需要在label标签上添加类名，<code>checkbox-inline</code></li>
+<li>如果radio需要水平排列，只需要在label标签上添加类名<code>radio-inline</code><h4 id="form-button"><a href="#form-button" class="headerlink" title="form-button"></a>form-button</h4></li>
+<li>在bootstrap框架中的按钮都是采用<code>&lt;button&gt;来实现的</code></li>
+<li>Bootstrap框架首先通过基础类名<code>.btn</code>定义了一个基础的按钮风格，然后通过<code>.btn-default</code>定义了一个默认的按钮风格。默认按钮的风格就是在基础按钮的风格的基础之上修改了按钮的<code>背景颜色</code>，<code>边框颜色</code>，<code>文本颜色</code>:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">	&lt;button class=&quot;btn btn-default&quot;&gt;默认按钮&lt;/button&gt;</span><br><span class="line">	</span><br><span class="line">	.btn-primary :主要按钮</span><br><span class="line">	.btn-success :成功按钮</span><br><span class="line">	.btn-warning :警告按钮</span><br><span class="line">	.btn-danger  :危险按钮</span><br><span class="line">	.btn-link    :连接按钮</span><br><span class="line">	.btn-lg		  :大型按钮</span><br><span class="line">	.btn-sm		  :小型按钮</span><br><span class="line">	.btn-xm		  :超小型按钮</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">*  `.btn`类还支持a标签，type-submit的input标签</span><br><span class="line"></span><br><span class="line">#### 水平表单</span><br><span class="line">在bootstrap中要实现水平表单效果，必须满足一下两个条件</span><br><span class="line"></span><br><span class="line">1.在`&lt;form&gt;`元素是使用`form-horizontal`</span><br><span class="line">2.配合bootstrap框架的网格系统</span><br><span class="line"></span><br><span class="line">#### 内联表单</span><br><span class="line">* 要实现一个美观简单的表单是轻而易举的，只要在`&lt;form&gt;`元素中添加类名`form-inline`即可</span><br><span class="line">* label标签会导致input换行显示，解决方案就是给label添加一个类名`sr-only`，标签没实现就是这个样式将标签隐藏了。</span><br><span class="line">* 如果没有为输入控件设置label标签，屏幕阅读器将无法正确识别，这也是bootstrap框架另一个优点之处，为残障人员进行了一定的考虑。</span><br><span class="line"></span><br><span class="line">列子：</span><br></pre></td></tr></table></figure>
+<p><div class="container"><br>    <form action=""><br>      <div class="form-group"><br>        <label for="username"> <span class="glyphicon glyphicon-user"></span>用户名</label><br>        <input class="form-control" type="text" id="username" placeholder="用户名/手机号"><br>      </div><br>      <div class="form-group"><br>        <label for="passowrd"> <span class="glyphicon glyphicon-user"></span>密码</label><br>        <input class="form-control" placeholder="密码" type="password" id="password"><br>      </div><br>      <div class="form-group"><br>        <input type="checkbox"> 记住我<br>      </div><br>      <button class="btn-primary">提交</button><br>      </form><br></div><br>```<br>显示结果：<br><img src="http://o70l9ck3o.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-18%20%E4%B8%8B%E5%8D%889.46.30.png" alt="table例子"></p>
+
       
     </div>
     
