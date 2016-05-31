@@ -4,27 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>makedown语法测试 | 前端农场</title>
+  <title>面向对象之原型继承 | 前端农场</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="知识整理
-撒风景
-阿斯顿法国
-爱国">
+  <meta name="description" content="##面向对象的继承
+继承的作用：让一个对象的属性和方法可以另一个对象是用。
+继承的目的：简化代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="makedown语法测试">
-<meta property="og:url" content="http://yoursite.com/2016/01/08/makedown语法测试/index.html">
+<meta property="og:title" content="面向对象之原型继承">
+<meta property="og:url" content="http://yoursite.com/2016/05/31/面向对象之原型继承/index.html">
 <meta property="og:site_name" content="前端农场">
-<meta property="og:description" content="知识整理
-撒风景
-阿斯顿法国
-爱国">
-<meta property="og:updated_time" content="2016-05-12T14:13:13.000Z">
+<meta property="og:description" content="##面向对象的继承
+继承的作用：让一个对象的属性和方法可以另一个对象是用。
+继承的目的：简化代码">
+<meta property="og:updated_time" content="2016-05-31T14:29:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="makedown语法测试">
-<meta name="twitter:description" content="知识整理
-撒风景
-阿斯顿法国
-爱国">
+<meta name="twitter:title" content="面向对象之原型继承">
+<meta name="twitter:description" content="##面向对象的继承
+继承的作用：让一个对象的属性和方法可以另一个对象是用。
+继承的目的：简化代码">
   
     <link rel="alternative" href="/atom.xml" title="前端农场" type="application/atom+xml">
   
@@ -210,11 +207,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-makedown语法测试" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-面向对象之原型继承" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/08/makedown语法测试/" class="article-date">
-  	<time datetime="2016-01-08T03:29:51.000Z" itemprop="datePublished">2016-01-08</time>
+      <a href="/2016/05/31/面向对象之原型继承/" class="article-date">
+  	<time datetime="2016-05-31T13:27:32.000Z" itemprop="datePublished">2016-05-31</time>
 </a>
     </div>
   
@@ -227,7 +224,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      makedown语法测试
+      面向对象之原型继承
     </h1>
   
 
@@ -236,7 +233,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自己玩/">自己玩</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/克隆/">克隆</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/继承/">继承</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
 	</div>
 
         
@@ -247,23 +244,100 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<ul>
-<li>知识整理</li>
-<li>撒风景</li>
-<li>阿斯顿法国</li>
-<li>爱国<a id="more"></a>
-请保留此份文职后者按自己<code>自己</code></li>
-</ul>
+        <p>##面向对象的继承</p>
+<h4 id="继承的作用："><a href="#继承的作用：" class="headerlink" title="继承的作用："></a>继承的作用：</h4><p>让一个对象的属性和方法可以另一个对象是用。</p>
+<h4 id="继承的目的："><a href="#继承的目的：" class="headerlink" title="继承的目的："></a>继承的目的：</h4><p>简化代码<br><a id="more"></a></p>
+<h5 id="是用场景："><a href="#是用场景：" class="headerlink" title="是用场景："></a>是用场景：</h5><p>当在项目中需要对一个组件进行功能扩张，但扩展功能又不能影响组件原有的基本功能时。</p>
+<p>比如：<br>    小红在拥有与小明一样的属性和方法同时，还多了一个爱好的方法：<code>逛街</code>。</p>
+<p>1.小明和小红都有共同有基本属性好方法。</p>
+<p>2.小红多了一个爱好方法。</p>
+<h3 id="使用call或者apply实现继承"><a href="#使用call或者apply实现继承" class="headerlink" title="使用call或者apply实现继承"></a>使用call或者apply实现继承</h3><pre><code>function Parent(name){
+    this.name=name;
+    this.type=&quot;人类&quot;;
+}
+
+Parent.prototype.say=function(){alert(this.name);};
+
+function Child(){
+    Parent.call(this,name);
+    this.sex=&quot;boy&quot;;
+}
+var obj=new Child(&quot;小明&quot;);
+alert(obj.name);//空
+alert(obj.sex);//boy
+</code></pre><p><code>这个方法无法继承原型对象上德属性和方法</code>。</p>
+<h3 id="使用原型继承"><a href="#使用原型继承" class="headerlink" title="使用原型继承"></a>使用原型继承</h3><pre><code>function Parent(name){
+    this.name=name;
+    this.type=&quot;人类&quot;;
+}
+
+Parent.prototype.say=function(){
+    alert(this.name);
+}
+
+function Child(name){
+    this.name=name;
+    this.type=&quot;学生&quot;;
+}
+
+Child.prototype=new Parent();
+Child.prototype.constructor=Child;
+var obj=new Child(&quot;小明&quot;);
+// obj.say();
+alert(obj.type);//学生
+alert(obj.name);//小明
+</code></pre><p><code>这个方法改变了原型对象上的属性</code>。</p>
+<h3 id="原型继承的第二种方式"><a href="#原型继承的第二种方式" class="headerlink" title="原型继承的第二种方式"></a>原型继承的第二种方式</h3><pre><code>function Parent(name){
+    this.name=name;
+    this.type=&quot;人类&quot;;
+}
+
+Parent.prototype.say=function(){
+    alert(this.name);
+}
+
+function Child(name){
+    Parent.call(this,name);
+    // this.name=name;    
+}
+
+function F(){}
+
+F.Prototype=Parent.prototype;
+Child.prototype=new F();
+Child.prototype.constructor=Child;
+var obj=new Child(&quot;小明&quot;);
+// obj.say();
+alert(obj.type);//人类
+alert(obj.name);//小明
+</code></pre><p><code>这个方法继承了原有的属性，还能在不改变原型对象属性的基础之上，实现自身方法属性的扩展</code>。    </p>
+<p>###总结：<br>使用第二种原型继承的步骤：</p>
+<blockquote>
+<p>   1 先创建一个空函数<br>   2 将原型的原型链赋予这个空函数的原型链<br>   3 空函数的实例化对象为继承者的原型（即Child.prototype=new F()）<br>   4 创建一个实力化对象。</p>
+<p>###扩展（关于克隆的问题）</p>
+<h4 id="传值与传址"><a href="#传值与传址" class="headerlink" title="传值与传址"></a>传值与传址</h4><p>1.传值：简单数据类型之间的赋值为传值（jsvascript中的简单数据类型共有五种：Arrary String Boolean Null Undefined）</p>
 </blockquote>
-<ul>
-<li>[ ] 支持</li>
-<li><p>[ ] 不支持</p>
-</li>
-<li><p>[x] 反对</p>
-</li>
-<li>[x] 新增</li>
-</ul>
+<pre><code>var a=1;
+var b=a;
+
+b=5;
+alert(a);// 1
+</code></pre><p><code>a将值直接复制给b，修改b的值并不会影响到a</code>。<br>2.传址：复杂数据类型之间的赋值为传址。</p>
+<pre><code>var arr1=[1,2,3,4];
+var arr2=arr1;
+
+arr2[0]=10;
+alert(arr1[0]);//10
+</code></pre><p><code>arr1 将值的地址复制给arr2，修改arr2的值会影响到arr1的值</code>。</p>
+<h4 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h4><p>JSON.stringify()</p>
+<p>将[]或{}的对象转换成字符串形式的值</p>
+<p>JSON.parse()</p>
+<p>将字符串形式的[]或{}值转换成对象</p>
+<p>克隆实现原理:</p>
+<blockquote>
+<p>   利用字符串赋值为传值的特点，先将对象转换成字符串形式，然后将字符串形式的值再转换成对象.</p>
+</blockquote>
+<h5 id="兼容问题："><a href="#兼容问题：" class="headerlink" title="兼容问题："></a>兼容问题：</h5><p>不支持低版本IE浏览器</p>
 
       
     </div>
@@ -273,18 +347,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/13/nodeJS初学小结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          nodeJS初学小结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/03/github更新操作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">github更新操作</div>
+    <a href="/2016/05/18/bootstrap表单和栅格浅谈/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bootstrap表单和栅格浅谈</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -319,7 +384,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="makedown语法测试" data-title="makedown语法测试" data-url="http://yoursite.com/2016/01/08/makedown语法测试/"></div>
+	<div class="ds-thread" data-thread-key="面向对象之原型继承" data-title="面向对象之原型继承" data-url="http://yoursite.com/2016/05/31/面向对象之原型继承/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
