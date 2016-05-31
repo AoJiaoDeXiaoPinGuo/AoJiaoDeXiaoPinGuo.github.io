@@ -6,21 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>面向对象之原型继承 | 前端农场</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##面向对象的继承
-继承的作用：让一个对象的属性和方法可以另一个对象是用。
+  <meta name="description" content="面向对象的继承继承的作用：让一个对象的属性和方法可以另一个对象是用。
 继承的目的：简化代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向对象之原型继承">
 <meta property="og:url" content="http://yoursite.com/2016/05/31/面向对象之原型继承/index.html">
 <meta property="og:site_name" content="前端农场">
-<meta property="og:description" content="##面向对象的继承
-继承的作用：让一个对象的属性和方法可以另一个对象是用。
+<meta property="og:description" content="面向对象的继承继承的作用：让一个对象的属性和方法可以另一个对象是用。
 继承的目的：简化代码">
-<meta property="og:updated_time" content="2016-05-31T14:30:31.000Z">
+<meta property="og:updated_time" content="2016-05-31T14:37:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象之原型继承">
-<meta name="twitter:description" content="##面向对象的继承
-继承的作用：让一个对象的属性和方法可以另一个对象是用。
+<meta name="twitter:description" content="面向对象的继承继承的作用：让一个对象的属性和方法可以另一个对象是用。
 继承的目的：简化代码">
   
     <link rel="alternative" href="/atom.xml" title="前端农场" type="application/atom+xml">
@@ -86,7 +83,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -244,14 +241,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##面向对象的继承</p>
-<h4 id="继承的作用："><a href="#继承的作用：" class="headerlink" title="继承的作用："></a>继承的作用：</h4><p>让一个对象的属性和方法可以另一个对象是用。</p>
-<h4 id="继承的目的："><a href="#继承的目的：" class="headerlink" title="继承的目的："></a>继承的目的：</h4><p>简化代码<br><a id="more"></a></p>
-<h5 id="是用场景："><a href="#是用场景：" class="headerlink" title="是用场景："></a>是用场景：</h5><p>当在项目中需要对一个组件进行功能扩张，但扩展功能又不能影响组件原有的基本功能时。</p>
-<p>比如：<br>    小红在拥有与小明一样的属性和方法同时，还多了一个爱好的方法：<code>逛街</code>。</p>
+        <h2 id="面向对象的继承"><a href="#面向对象的继承" class="headerlink" title="面向对象的继承"></a>面向对象的继承</h2><p>继承的作用：<br>让一个对象的属性和方法可以另一个对象是用。</p>
+<p>继承的目的：<br>简化代码<br><a id="more"></a></p>
+<h5 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h5><p>当在项目中需要对一个组件进行功能扩张，但扩展功能又不能影响组件原有的基本功能时。</p>
+<p>比如：<br>小红在拥有与小明一样的属性和方法同时，还多了一个爱好的方法：<code>逛街</code>。</p>
 <p>1.小明和小红都有共同有基本属性好方法。</p>
 <p>2.小红多了一个爱好方法。</p>
-<h3 id="使用call或者apply实现继承"><a href="#使用call或者apply实现继承" class="headerlink" title="使用call或者apply实现继承"></a>使用call或者apply实现继承</h3><pre><code>function Parent(name){
+<h3 id="使用call或者apply实现继承："><a href="#使用call或者apply实现继承：" class="headerlink" title="使用call或者apply实现继承："></a>使用call或者apply实现继承：</h3><pre><code>function Parent(name){
     this.name=name;
     this.type=&quot;人类&quot;;
 }
@@ -266,7 +262,7 @@ var obj=new Child(&quot;小明&quot;);
 alert(obj.name);//空
 alert(obj.sex);//boy
 </code></pre><p><code>这个方法无法继承原型对象上德属性和方法</code>。</p>
-<h3 id="使用原型继承"><a href="#使用原型继承" class="headerlink" title="使用原型继承"></a>使用原型继承</h3><pre><code>function Parent(name){
+<h3 id="使用原型继承："><a href="#使用原型继承：" class="headerlink" title="使用原型继承："></a>使用原型继承：</h3><pre><code>function Parent(name){
     this.name=name;
     this.type=&quot;人类&quot;;
 }
@@ -287,7 +283,7 @@ var obj=new Child(&quot;小明&quot;);
 alert(obj.type);//学生
 alert(obj.name);//小明
 </code></pre><p><code>这个方法改变了原型对象上的属性</code>。</p>
-<h3 id="原型继承的第二种方式"><a href="#原型继承的第二种方式" class="headerlink" title="原型继承的第二种方式"></a>原型继承的第二种方式</h3><pre><code>function Parent(name){
+<h3 id="原型继承的第二种方式："><a href="#原型继承的第二种方式：" class="headerlink" title="原型继承的第二种方式："></a>原型继承的第二种方式：</h3><pre><code>function Parent(name){
     this.name=name;
     this.type=&quot;人类&quot;;
 }
@@ -311,12 +307,11 @@ var obj=new Child(&quot;小明&quot;);
 alert(obj.type);//人类
 alert(obj.name);//小明
 </code></pre><p><code>这个方法继承了原有的属性，还能在不改变原型对象属性的基础之上，实现自身方法属性的扩展</code>。    </p>
-<p>###总结：<br>使用第二种原型继承的步骤：</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>使用第二种原型继承的步骤：</p>
 <blockquote>
 <p>   1 先创建一个空函数<br>   2 将原型的原型链赋予这个空函数的原型链<br>   3 空函数的实例化对象为继承者的原型（即Child.prototype=new F()）<br>   4 创建一个实力化对象。</p>
-<p>###扩展（关于克隆的问题）</p>
-<h4 id="传值与传址"><a href="#传值与传址" class="headerlink" title="传值与传址"></a>传值与传址</h4><p>1.传值：简单数据类型之间的赋值为传值（jsvascript中的简单数据类型共有五种：Arrary String Boolean Null Undefined）</p>
 </blockquote>
+<h3 id="扩展（关于克隆的问题）"><a href="#扩展（关于克隆的问题）" class="headerlink" title="扩展（关于克隆的问题）"></a>扩展（关于克隆的问题）</h3><h4 id="传值与传址："><a href="#传值与传址：" class="headerlink" title="传值与传址："></a>传值与传址：</h4><p>1.传值：简单数据类型之间的赋值为传值（jsvascript中的简单数据类型共有五种：Arrary String Boolean Null Undefined）</p>
 <pre><code>var a=1;
 var b=a;
 
@@ -329,7 +324,7 @@ var arr2=arr1;
 arr2[0]=10;
 alert(arr1[0]);//10
 </code></pre><p><code>arr1 将值的地址复制给arr2，修改arr2的值会影响到arr1的值</code>。</p>
-<h4 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h4><p>JSON.stringify()</p>
+<h4 id="克隆："><a href="#克隆：" class="headerlink" title="克隆："></a>克隆：</h4><p>JSON.stringify()</p>
 <p>将[]或{}的对象转换成字符串形式的值</p>
 <p>JSON.parse()</p>
 <p>将字符串形式的[]或{}值转换成对象</p>
@@ -337,8 +332,7 @@ alert(arr1[0]);//10
 <blockquote>
 <p>   利用字符串赋值为传值的特点，先将对象转换成字符串形式，然后将字符串形式的值再转换成对象.</p>
 </blockquote>
-<h5 id="兼容问题："><a href="#兼容问题：" class="headerlink" title="兼容问题："></a>兼容问题：</h5><p>不支持低版本IE浏览器</p>
-
+<h5 id="兼容问题：此方法不支持低版本IE浏览器。"><a href="#兼容问题：此方法不支持低版本IE浏览器。" class="headerlink" title="兼容问题：此方法不支持低版本IE浏览器。"></a>兼容问题：此方法不支持低版本IE浏览器。</h5>
       
     </div>
     
