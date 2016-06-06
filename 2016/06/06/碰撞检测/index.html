@@ -4,17 +4,48 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: 数组 | 前端农场</title>
+  <title>碰撞检测 | 前端农场</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录点滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端农场">
-<meta property="og:url" content="http://yoursite.com/tags/数组/index.html">
+  <meta name="description" content="本章的碰撞都是在canvas上应用。
+矩形的碰撞检测先看例子:&amp;lt;!DOCTYPE html&amp;gt;
+
+        矩形正向碰撞    
+    #canvas1{
+        border: 1px solid red;
+    }
+&amp;lt;/style&amp;gt;
+
+    
+    var canvas = document.getElementById(“canvas1”);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="碰撞检测">
+<meta property="og:url" content="http://yoursite.com/2016/06/06/碰撞检测/index.html">
 <meta property="og:site_name" content="前端农场">
-<meta property="og:description" content="记录点滴">
+<meta property="og:description" content="本章的碰撞都是在canvas上应用。
+矩形的碰撞检测先看例子:&amp;lt;!DOCTYPE html&amp;gt;
+
+        矩形正向碰撞    
+    #canvas1{
+        border: 1px solid red;
+    }
+&amp;lt;/style&amp;gt;
+
+    
+    var canvas = document.getElementById(“canvas1”);">
+<meta property="og:updated_time" content="2016-06-06T13:55:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端农场">
-<meta name="twitter:description" content="记录点滴">
+<meta name="twitter:title" content="碰撞检测">
+<meta name="twitter:description" content="本章的碰撞都是在canvas上应用。
+矩形的碰撞检测先看例子:&amp;lt;!DOCTYPE html&amp;gt;
+
+        矩形正向碰撞    
+    #canvas1{
+        border: 1px solid red;
+    }
+&amp;lt;/style&amp;gt;
+
+    
+    var canvas = document.getElementById(“canvas1”);">
   
     <link rel="alternative" href="/atom.xml" title="前端农场" type="application/atom+xml">
   
@@ -200,53 +231,188 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-碰撞检测" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/16/再见，重复的你（数组去重）/" class="archive-article-date">
-  	<time datetime="2016-02-16T13:25:49.000Z" itemprop="datePublished">Feb 16</time>
+    <div class="article-meta">
+      <a href="/2016/06/06/碰撞检测/" class="article-date">
+  	<time datetime="2016-06-06T13:28:12.000Z" itemprop="datePublished">2016-06-06</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/16/再见，重复的你（数组去重）/">数组去重</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      碰撞检测
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组去重/">数组去重</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/碰撞检测/">碰撞检测</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运动/">运动</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本章的碰撞都是在canvas上应用。</p>
+<h3 id="矩形的碰撞检测"><a href="#矩形的碰撞检测" class="headerlink" title="矩形的碰撞检测"></a>矩形的碰撞检测</h3><p>先看例子:<br>&lt;!DOCTYPE html&gt;</p>
+<p><html lang="en"></html></p>
+<p><head><br>    <meta charset="UTF-8"><br>    <title>矩形正向碰撞</title><br>    <style type="text/css"></p>
+<pre><code>    #canvas1{
+        border: 1px solid red;
+    }
+&lt;/style&gt;
+</code></pre><p></head></p>
+<p><body><br>    <canvas id="canvas1" width="600" height="150"></canvas><br></body></p>
+<p><script type="text/javascript"><br>    var canvas = document.getElementById(“canvas1”);<br>    var context = canvas.getContext(“2d”);</p>
+<pre><code>function Rect(x,y,width,height,color,v){
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.color = color;
+    this.v = v;
+    this.draw = function(){
+        context.beginPath();
+        context.fillStyle = this.color;
+        context.fillRect(this.x,this.y,this.width,this.height);
+    }
+    this.move = function(){
+        this.x += this.v;
+        if (this.x + this.width &gt; canvas.width)
+        {
+            this.v *= -1;
+        }else if(this.x &lt; 0){
+            this.v *= -1;
+        }
+    }
+}
+var rect1 = new Rect(0,0,100,100,&quot;red&quot;,2);
+var rect2 = new Rect(canvas.width-100,0,100,100,&quot;green&quot;,-2);
+rect1.draw();
+rect2.draw();
+
+function amimate(){
+    context.clearRect(0,0,canvas.width,canvas.height);
+    rect1.move();
+    rect2.move();
+    rect1.draw();
+    rect2.draw();
+    if(isRectInsect(rect1,rect2)){
+        console.log(&quot;撞了，撞了&quot;);
+        rect1.v *= -1;
+        rect2.v *= -1;
+    }
+
+    window.requestAnimationFrame(amimate);
+}
+
+amimate();
+function isRectInsect(rect1,rect2){
+    //分别获取2个矩形的最值
+    var minX1 = rect1.x;
+    var maxX1 = rect1.x + rect1.width;
+
+    var minY1 = rect1.y;
+    var maxY1 = rect1.y + rect1.height;
+
+    var minX2 = rect2.x;
+    var maxX2 = rect2.x + rect2.width;
+
+    var minY2 = rect2.y;
+    var maxY2 = rect2.y + rect2.height;
+    //相交矩形的最值
+    var minX = Math.max(minX1,minX2);
+    var maxX = Math.min(maxX1,maxX2);
+    var minY = Math.max(minY1,minY2);
+    var maxY = Math.min(maxY1,maxY2);
+
+    if (minX &lt; maxX &amp;&amp; minY &lt; maxY) {
+        return true;
+    }else{
+        return false;
+    }
+}
+</code></pre><p></script><br></html><br>当两个矩形碰到，就反向返回。</p>
+</style></head></p>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/31/面向对象之原型继承/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面向对象之原型继承</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="碰撞检测" data-title="碰撞检测" data-url="http://yoursite.com/2016/06/06/碰撞检测/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -272,9 +438,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
