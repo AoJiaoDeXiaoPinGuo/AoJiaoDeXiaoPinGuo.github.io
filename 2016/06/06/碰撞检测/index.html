@@ -7,45 +7,27 @@
   <title>碰撞检测 | 前端农场</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="本章的碰撞都是在canvas上应用。
-矩形的碰撞检测先看例子:&amp;lt;!DOCTYPE html&amp;gt;
+矩形的碰撞检测先看例子:
 
-        矩形正向碰撞    
-    #canvas1{
-        border: 1px solid red;
-    }
-&amp;lt;/style&amp;gt;
 
-    
-    var canvas = document.getElementById(“canvas1”);">
+当两个矩形碰到，就反向返回。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="碰撞检测">
 <meta property="og:url" content="http://yoursite.com/2016/06/06/碰撞检测/index.html">
 <meta property="og:site_name" content="前端农场">
 <meta property="og:description" content="本章的碰撞都是在canvas上应用。
-矩形的碰撞检测先看例子:&amp;lt;!DOCTYPE html&amp;gt;
+矩形的碰撞检测先看例子:
 
-        矩形正向碰撞    
-    #canvas1{
-        border: 1px solid red;
-    }
-&amp;lt;/style&amp;gt;
 
-    
-    var canvas = document.getElementById(“canvas1”);">
-<meta property="og:updated_time" content="2016-06-06T13:55:14.000Z">
+当两个矩形碰到，就反向返回。">
+<meta property="og:updated_time" content="2016-06-06T14:04:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="碰撞检测">
 <meta name="twitter:description" content="本章的碰撞都是在canvas上应用。
-矩形的碰撞检测先看例子:&amp;lt;!DOCTYPE html&amp;gt;
+矩形的碰撞检测先看例子:
 
-        矩形正向碰撞    
-    #canvas1{
-        border: 1px solid red;
-    }
-&amp;lt;/style&amp;gt;
 
-    
-    var canvas = document.getElementById(“canvas1”);">
+当两个矩形碰到，就反向返回。">
   
     <link rel="alternative" href="/atom.xml" title="前端农场" type="application/atom+xml">
   
@@ -110,7 +92,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -269,86 +251,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本章的碰撞都是在canvas上应用。</p>
-<h3 id="矩形的碰撞检测"><a href="#矩形的碰撞检测" class="headerlink" title="矩形的碰撞检测"></a>矩形的碰撞检测</h3><p>先看例子:<br>&lt;!DOCTYPE html&gt;</p>
-<p><html lang="en"></html></p>
-<p><head><br>    <meta charset="UTF-8"><br>    <title>矩形正向碰撞</title><br>    <style type="text/css"></p>
-<pre><code>    #canvas1{
-        border: 1px solid red;
-    }
-&lt;/style&gt;
-</code></pre><p></head></p>
-<p><body><br>    <canvas id="canvas1" width="600" height="150"></canvas><br></body></p>
-<p><script type="text/javascript"><br>    var canvas = document.getElementById(“canvas1”);<br>    var context = canvas.getContext(“2d”);</p>
-<pre><code>function Rect(x,y,width,height,color,v){
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.color = color;
-    this.v = v;
-    this.draw = function(){
-        context.beginPath();
-        context.fillStyle = this.color;
-        context.fillRect(this.x,this.y,this.width,this.height);
-    }
-    this.move = function(){
-        this.x += this.v;
-        if (this.x + this.width &gt; canvas.width)
-        {
-            this.v *= -1;
-        }else if(this.x &lt; 0){
-            this.v *= -1;
-        }
-    }
-}
-var rect1 = new Rect(0,0,100,100,&quot;red&quot;,2);
-var rect2 = new Rect(canvas.width-100,0,100,100,&quot;green&quot;,-2);
-rect1.draw();
-rect2.draw();
+<h3 id="矩形的碰撞检测"><a href="#矩形的碰撞检测" class="headerlink" title="矩形的碰撞检测"></a>矩形的碰撞检测</h3><p>先看例子:</p>
+<iframe src="http://www.wangjinjing.com/demo/isRectInset.html" width="630" height="175">
 
-function amimate(){
-    context.clearRect(0,0,canvas.width,canvas.height);
-    rect1.move();
-    rect2.move();
-    rect1.draw();
-    rect2.draw();
-    if(isRectInsect(rect1,rect2)){
-        console.log(&quot;撞了，撞了&quot;);
-        rect1.v *= -1;
-        rect2.v *= -1;
-    }
+<p></p></iframe><br>当两个矩形碰到，就反向返回。<p></p>
 
-    window.requestAnimationFrame(amimate);
-}
-
-amimate();
-function isRectInsect(rect1,rect2){
-    //分别获取2个矩形的最值
-    var minX1 = rect1.x;
-    var maxX1 = rect1.x + rect1.width;
-
-    var minY1 = rect1.y;
-    var maxY1 = rect1.y + rect1.height;
-
-    var minX2 = rect2.x;
-    var maxX2 = rect2.x + rect2.width;
-
-    var minY2 = rect2.y;
-    var maxY2 = rect2.y + rect2.height;
-    //相交矩形的最值
-    var minX = Math.max(minX1,minX2);
-    var maxX = Math.min(maxX1,maxX2);
-    var minY = Math.max(minY1,minY2);
-    var maxY = Math.min(maxY1,maxY2);
-
-    if (minX &lt; maxX &amp;&amp; minY &lt; maxY) {
-        return true;
-    }else{
-        return false;
-    }
-}
-</code></pre><p></script><br></html><br>当两个矩形碰到，就反向返回。</p>
-</style></head></p>
       
     </div>
     
