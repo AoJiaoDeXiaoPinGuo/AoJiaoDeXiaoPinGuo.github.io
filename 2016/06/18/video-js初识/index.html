@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>video.js初识 | 前端农场</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="videojs就提供了这样一套解决方案，他是一个兼容html5的视频播放工具，早期版本兼容所有浏览器，方法是：提供三个后缀名的视频，并在不支持html5的浏览器下生成一个flash的版本。
+最新的3.1.0版本优化了之前的做法，只需要提供两个格式的视频，页面制作起来更加方便，只有两步走：1、引用脚本，videojs很为你着想，直接cdn了，你都不需要下载这些代码放入自己的网站123&amp;lt;link">
+<meta property="og:type" content="article">
+<meta property="og:title" content="video.js初识">
+<meta property="og:url" content="http://yoursite.com/2016/06/18/video-js初识/index.html">
+<meta property="og:site_name" content="前端农场">
+<meta property="og:description" content="videojs就提供了这样一套解决方案，他是一个兼容html5的视频播放工具，早期版本兼容所有浏览器，方法是：提供三个后缀名的视频，并在不支持html5的浏览器下生成一个flash的版本。
+最新的3.1.0版本优化了之前的做法，只需要提供两个格式的视频，页面制作起来更加方便，只有两步走：1、引用脚本，videojs很为你着想，直接cdn了，你都不需要下载这些代码放入自己的网站123&amp;lt;link">
+<meta property="og:updated_time" content="2016-08-01T06:24:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="video.js初识">
+<meta name="twitter:description" content="videojs就提供了这样一套解决方案，他是一个兼容html5的视频播放工具，早期版本兼容所有浏览器，方法是：提供三个后缀名的视频，并在不支持html5的浏览器下生成一个flash的版本。
+最新的3.1.0版本优化了之前的做法，只需要提供两个格式的视频，页面制作起来更加方便，只有两步走：1、引用脚本，videojs很为你着想，直接cdn了，你都不需要下载这些代码放入自己的网站123&amp;lt;link">
+  
+    <link rel="alternative" href="/atom.xml" title="前端农场" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o70l9ck3o.bkt.clouddn.com/mylogo.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o70l9ck3o.bkt.clouddn.com/mylogo.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">傲娇的码农</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">尘世中一个迷途的小吃货</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/3081176637/" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/boorstrap/" style="font-size: 10px;">boorstrap</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/gihthub/" style="font-size: 10px;">gihthub</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 20px;">gulp</a> <a href="/tags/h5播放/" style="font-size: 10px;">h5播放</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/vedeo-js/" style="font-size: 10px;">vedeo.js</a> <a href="/tags/代码压缩/" style="font-size: 10px;">代码压缩</a> <a href="/tags/代码合并/" style="font-size: 10px;">代码合并</a> <a href="/tags/伪元素/" style="font-size: 10px;">伪元素</a> <a href="/tags/伪类/" style="font-size: 10px;">伪类</a> <a href="/tags/克隆/" style="font-size: 10px;">克隆</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/图片居中/" style="font-size: 10px;">图片居中</a> <a href="/tags/安装/" style="font-size: 10px;">安装</a> <a href="/tags/工程化/" style="font-size: 10px;">工程化</a> <a href="/tags/快速搭建/" style="font-size: 10px;">快速搭建</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/数组去重/" style="font-size: 10px;">数组去重</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/栅格/" style="font-size: 20px;">栅格</a> <a href="/tags/模块化/" style="font-size: 10px;">模块化</a> <a href="/tags/碰撞检测/" style="font-size: 10px;">碰撞检测</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/第三方/" style="font-size: 10px;">第三方</a> <a href="/tags/继承/" style="font-size: 10px;">继承</a> <a href="/tags/自动居中/" style="font-size: 10px;">自动居中</a> <a href="/tags/自己玩/" style="font-size: 10px;">自己玩</a> <a href="/tags/自适用/" style="font-size: 10px;">自适用</a> <a href="/tags/表单/" style="font-size: 10px;">表单</a> <a href="/tags/视屏/" style="font-size: 10px;">视屏</a> <a href="/tags/运动/" style="font-size: 10px;">运动</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">傲娇的码农</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o70l9ck3o.bkt.clouddn.com/mylogo.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">傲娇的码农</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">尘世中一个迷途的小吃货</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/3081176637/" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-video-js初识" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/18/video-js初识/" class="article-date">
+  	<time datetime="2016-06-18T13:24:15.000Z" itemprop="datePublished">2016-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      video.js初识
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/h5播放/">h5播放</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vedeo-js/">vedeo.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/视屏/">视屏</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>videojs就提供了这样一套解决方案，他是一个兼容html5的视频播放工具，早期版本兼容所有浏览器，方法是：提供三个后缀名的视频，并在不支持html5的浏览器下生成一个flash的版本。</p>
+<p>最新的3.1.0版本优化了之前的做法，只需要提供两个格式的视频，页面制作起来更加方便，只有两步走：<br>1、引用脚本，videojs很为你着想，直接cdn了，你都不需要下载这些代码放入自己的网站<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;link href=”http://vjs.zencdn.net/c/video-js.css” rel=”stylesheet”&gt;</span><br><span class="line">&lt;script src=”http://vjs.zencdn.net/c/video.js”&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>2、页面中加入一个html5的video标签，要这么加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	 &lt;video id=&quot;my-video&quot; class=&quot;video-js&quot; controls preload=&quot;auto&quot; width=&quot;640&quot; height=&quot;264&quot; data-setup=&quot;&#123;&#125;&quot;&gt;</span><br><span class="line">    	&lt;source src=&quot;wildlChina.mp4&quot; type=&apos;video/mp4&apos;&gt;</span><br><span class="line">    	&lt;source src=&quot;MY_VIDEO.webm&quot; type=&apos;video/webm&apos;&gt;</span><br><span class="line">     &lt;/video&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">其中post就是视频的缩略图，那俩source一个指向mp4视频，一个指向webm视频，在页面加载过程中，video.js会判断浏览器支持哪个格式视频，会自动加载可播放的视频。</span><br><span class="line">简单吧！</span><br><span class="line"></span><br><span class="line">### 进阶：使用api</span><br><span class="line"></span><br><span class="line">获取对象：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	var myPlayer = _V_(“my_video_1″);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">后面那个就是就是video标签的id值，这是myPlayer就是播放器对象了。</span><br><span class="line"></span><br><span class="line">播放：</span><br><span class="line"></span><br><span class="line">	`myPlayer.play();`</span><br><span class="line"></span><br><span class="line">暂停：</span><br><span class="line"></span><br><span class="line">	`myPlayer.pause();`</span><br><span class="line"></span><br><span class="line">获取播放进度：</span><br><span class="line"></span><br><span class="line">	`var whereYouAt = myPlayer.currentTime();`</span><br><span class="line"></span><br><span class="line">设置播放进度：</span><br><span class="line"></span><br><span class="line">	`myPlayer.currentTime(120);`</span><br><span class="line"></span><br><span class="line">视频持续时间，加载完成视频才可以知道视频时长，且在flash情况下无效</span><br><span class="line"></span><br><span class="line">	`var howLongIsThis = myPlayer.duration();`</span><br><span class="line"></span><br><span class="line">缓冲，就是返回下载了多少</span><br><span class="line"></span><br><span class="line">	`var whatHasBeenBuffered = myPlayer.buffered();`</span><br><span class="line"></span><br><span class="line">百分比的缓冲</span><br><span class="line"></span><br><span class="line">	`var howMuchIsDownloaded = myPlayer.bufferedPercent();`</span><br><span class="line"></span><br><span class="line">声音大小（0-1之间）</span><br><span class="line"></span><br><span class="line">	`var howLoudIsIt = myPlayer.volume();`</span><br><span class="line"></span><br><span class="line">设置声音大小</span><br><span class="line"></span><br><span class="line">	`myPlayer.volume(0.5);`</span><br><span class="line"></span><br><span class="line">取得视频的宽度</span><br><span class="line"></span><br><span class="line">	`var howWideIsIt = myPlayer.width();`</span><br><span class="line"></span><br><span class="line">设置宽度：</span><br><span class="line"></span><br><span class="line">	`myPlayer.width(640);`</span><br><span class="line"></span><br><span class="line">获取高度</span><br><span class="line"></span><br><span class="line">	`var howTallIsIt = myPlayer.height();`</span><br><span class="line"></span><br><span class="line">设置高度：</span><br><span class="line"></span><br><span class="line">	`myPlayer.height(480);`</span><br><span class="line"></span><br><span class="line">一步到位的设置大小：</span><br><span class="line"></span><br><span class="line">	`myPlayer.size(640,480);`</span><br><span class="line"></span><br><span class="line">全屏</span><br><span class="line"></span><br><span class="line">	`myPlayer.enterFullScreen();`</span><br><span class="line"></span><br><span class="line">离开全屏</span><br><span class="line"></span><br><span class="line">	`myPlayer.enterFullScreen();`</span><br><span class="line"></span><br><span class="line">### 添加事件</span><br></pre></td></tr></table></figure></p>
+<pre><code>var myFunc = function(){
+// Do something when the event is fired
+};
+myPlayer.addEvent(“eventName”, myFunc);
+</code></pre><p>```<br>删除事件</p>
+<p><code>myPlayer.removeEvent(“eventName”, myFunc);</code></p>
+<p>所有事件列表：</p>
+<p>NameDescriptionloadstart开始加载play播放.pause暂停.timeupdateFired when the current playback position has changed. During playback this is fired every 15-250 milliseconds, depnding on the playback technology in use.就是时间变化吧，与具体的播放技术有关，不同浏览器及格式不同。ended播放结束durationchangeFired when the duration of the media resource is changed, or known for the first time.下载进度变化吧。progress进度变化.resize大小修改.volumechange音量变化.error出错.</p>
+<p><code>虽然文章说明在不支持html5的情况下，会以flash播放，但在支持html5的firefox下播放mp4时，却遇到很大的困难，虽然调用了flash，但一直无法播放（不过我也一直怀疑我的firefox下的flash有问题，不知道是不是真的）。不过如果你听从videojs的建议，放两个格式的视频，就不会有这个问题了。</code></p>
+<p>最后，这么好使的脚本，是免费的么？</p>
+<p>经查，该脚本遵循LGPLv3协议，听着协议又头大了？这里讲个常识：</p>
+<p>如果你的项目中要使用开源的代码，而你的项目又不开源，可选的开源协议有：BSD、MIT、LGPL、Apache Licence 2.0。其中前两种甚至可以修改源代码，但一定要标注版权；后两种可以随便用，但是不要随便改，呵呵。所以你要使用这个脚本的话，是完全可以的，api也这么全，至于css，并不受版权保护，你可以根据需要改变为你要的样式即可。</p>
+<p>原文链接：<a href="http://www.bcty365.com/content-47-604-1.html" target="_blank" rel="external">http://www.bcty365.com/content-47-604-1.html</a>;</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/06/碰撞检测/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">碰撞检测</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="video-js初识" data-title="video.js初识" data-url="http://yoursite.com/2016/06/18/video-js初识/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 傲娇的码农
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
